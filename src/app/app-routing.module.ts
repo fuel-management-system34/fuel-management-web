@@ -1,3 +1,4 @@
+import { UserListComponent } from './features/user-management/user-list/user-list.component';
 // angular import
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Project import
 import { GuestComponent } from './Layout/guest/guest.component';
 import { AdminComponent } from './Layout/admin-layout/admin-layout.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './Core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,8 +24,8 @@ const routes: Routes = [
         loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent)
       },
       {
-        path: 'typography',
-        loadComponent: () => import('./demo/ui-component/typography/typography.component')
+        path: 'users',
+        loadComponent: () => import('./features/user-management/user-list/user-list.component').then((c) => c.UserListComponent)
       },
       {
         path: 'color',
@@ -33,10 +34,6 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/other/sample-page/sample-page.component')
-      },
-      {
-        path: 'global-settings/users',
-        loadChildren: () => import('../Remotes/Global-settings/global-settings/users/users.module').then((m) => m.UsersModule)
       }
     ]
   },
@@ -46,18 +43,18 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        loadComponent: () => import('./demo/authentication/login/login.component')
-      },
-      {
-        path: 'register',
-        loadComponent: () => import('./demo/authentication/register/register.component')
+        loadComponent: () => import('./Core/auth/login/login.component').then((c) => c.LoginComponent)
       }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabledBlocking' // Wait for initialization before navigation
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
