@@ -78,15 +78,15 @@
     height: 100%;
     transition: all 0.3s ease-in-out;
 
-    ~app-nav-bar .pc-header {
+    ~ app-nav-bar .pc-header {
       left: 0px;
     }
 
-    ~.pc-footer {
+    ~ .pc-footer {
       margin-left: 20px;
     }
 
-    ~.pc-container {
+    ~ .pc-container {
       margin-left: 0px;
     }
 
@@ -100,14 +100,12 @@
   .navbar-content {
     position: relative;
     height: calc(100vh - 60px);
-    padding: 16px 0;
     background-color: var(--pc-header-background);
 
     .coded-inner-navbar {
       flex-direction: column;
 
-
-      app-nav-item>li.active:after {
+      app-nav-item > li.active:after {
         top: 0 !important;
         height: 100% !important;
       }
@@ -117,13 +115,13 @@
           position: relative;
           padding-bottom: 2px;
 
-          >a {
+          > a {
             &:after {
               content: '❱';
               font-size: 15px;
               border: none;
               position: absolute;
-              top: 11px;
+              top: 18px;
               right: 20px;
               transition: 0.3s ease-in-out;
             }
@@ -141,8 +139,8 @@
             position: absolute;
             display: block;
 
-            >app-nav-item li {
-              >a {
+            > app-nav-item li {
+              > a {
                 text-align: left;
                 padding: 12px 30px 12px 55px;
                 margin: 0;
@@ -159,17 +157,17 @@
               }
             }
 
-            >app-nav-collapse li {
-              >a {
+            > app-nav-collapse li {
+              > a {
                 text-align: left;
                 padding: 12px 30px 12px 55px;
                 margin: 0;
                 display: block;
               }
 
-              .coded-submenu> {
+              .coded-submenu > {
                 app-nav-item li {
-                  >a {
+                  > a {
                     padding: 12px 30px 12px 75px;
                   }
                 }
@@ -178,13 +176,13 @@
           }
 
           &.coded-trigger {
-            >a {
+            > a {
               &:after {
                 transform: rotate(90deg);
               }
             }
 
-            >.coded-submenu {
+            > .coded-submenu {
               position: relative;
               opacity: 1;
               visibility: visible;
@@ -206,8 +204,8 @@
           }
         }
 
-        >a {
-          padding: 12px 16px 12px 28px;
+        > a {
+          padding: 12px 16px 12px 15px;
           display: flex;
           align-items: center;
           border-radius: 5px;
@@ -217,10 +215,10 @@
             position: relative;
           }
 
-          >.coded-micon {
+          > .coded-micon {
             font-size: 18px;
             margin-right: 8px;
-            height: 16px;
+            height: 30px;
             display: inline-block;
             text-align: center;
 
@@ -228,7 +226,7 @@
               display: flex;
             }
 
-            +.coded-mtext {
+            + .coded-mtext {
               position: relative;
               vertical-align: middle;
               text-align: center;
@@ -240,15 +238,15 @@
 
       app-nav-item {
         li {
-          >a {
-            >.coded-micon {
+          > a {
+            > .coded-micon {
               margin-right: 12px;
             }
           }
         }
       }
 
-      >app-nav-group>app-nav-item {
+      > app-nav-group > app-nav-item {
         li {
           position: relative;
 
@@ -289,29 +287,28 @@
   background-color: #ffff !important;
 }
 
-
 @media (min-width: 1025px) {
   .pc-sidebar {
     transition: width 0.15s ease;
 
-    ~.pc-header {
+    ~ .pc-header {
       transition: left 0.15s ease;
     }
 
-    ~.pc-footer,
-    ~.pc-container {
+    ~ .pc-footer,
+    ~ .pc-container {
       transition: margin-left 0.15s ease;
     }
 
     &.pc-sidebar-hide {
       width: 0;
 
-      ~.pc-header {
+      ~ .pc-header {
         left: 0;
       }
 
-      ~.pc-footer,
-      ~.pc-container {
+      ~ .pc-footer,
+      ~ .pc-container {
         margin-left: 0px;
       }
     }
@@ -338,7 +335,7 @@
         background: inherit;
       }
 
-      ~.pc-container {
+      ~ .pc-container {
         .pc-menu-overlay {
           position: fixed;
           top: 0;
